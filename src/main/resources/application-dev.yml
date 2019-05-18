@@ -1,0 +1,24 @@
+server:
+  port: 12000
+spring:
+  application:
+    name: micro-eureka
+debug: false
+eureka:
+  environment: dev
+  instance:
+    appname: micro-eureka
+    hostname: 127.0.0.1
+    non-secure-port: ${server.port}
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}:${random.value}
+    prefer-ip-address: true
+
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://${spring.cloud.client.ip-address}:${server.port}/eureka
+
+  server:
+    enable-self-preservation: false
+    eviction-interval-timer-in-ms: 60000

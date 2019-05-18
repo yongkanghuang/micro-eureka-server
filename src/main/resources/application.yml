@@ -1,0 +1,6 @@
+info:
+  desc: eureka server
+
+spring:
+  profiles:
+    active: ${ACTIVE_PROFILE:dev}
